@@ -1672,3 +1672,87 @@ ActionView::Template::Error (First argument in form cannot contain nil or be emp
   Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (6.2ms)
   Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
   Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (118.8ms)
+
+
+Started GET "/" for 190.101.17.133 at 2016-08-22 16:50:56 +0000
+Cannot render console from 190.101.17.133! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#home as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "items" WHERE "items"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered shared/_user_info.html.erb (11.5ms)
+  Rendered static_pages/home.html.erb within layouts/application (34.2ms)
+Completed 500 Internal Server Error in 223ms (ActiveRecord: 1.6ms)
+
+ActionView::Template::Error (Missing partial shared/_items_form with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/ubuntu/workspace/app/views"
+):
+     5:         <%= render 'shared/user_info' %>
+     6:       </section>
+     7:       <section class="micropost_form">
+     8:         <%= render 'shared/items_form' %>
+     9:       </section>
+    10:     </aside>
+    11:     <div class="col-md-8">
+  app/views/static_pages/home.html.erb:8:in `_app_views_static_pages_home_html_erb__1576922827611596027_70068872960380'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (91.5ms)
+
+
+Started GET "/" for 190.101.17.133 at 2016-08-22 16:51:26 +0000
+Cannot render console from 190.101.17.133! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StaticPagesController#home as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "items" WHERE "items"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered shared/_user_info.html.erb (2.1ms)
+  [1m[35mItem Load (0.3ms)[0m  SELECT  "items".* FROM "items" WHERE "items"."user_id" = ? AND (user_id = 1)  ORDER BY "items"."created_at" DESC LIMIT 30 OFFSET 0  [["user_id", 1]]
+  Rendered shared/_item_form.html.erb (143.1ms)
+  Rendered static_pages/home.html.erb within layouts/application (149.1ms)
+Completed 500 Internal Server Error in 156ms (ActiveRecord: 0.7ms)
+
+ActionView::Template::Error (undefined method `items_path' for #<#<Class:0x00000004c426e8>:0x007f745d1cca40>
+Did you mean?  image_path):
+    1: <%= form_for(@item) do |f| %>
+    2:   <%= render 'shared/error_messagges', object: f.object %>
+    3:   <div class="field">
+    4:     <%= f.text_area :content, placeholder: "Qué trámite necesitas que HAGAMOS?" %>
+  app/views/shared/_item_form.html.erb:1:in `_app_views_shared__item_form_html_erb___3028102541518706625_70068877612120'
+  app/views/static_pages/home.html.erb:8:in `_app_views_static_pages_home_html_erb__1576922827611596027_35468940'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (13.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (95.1ms)
+
+
+Started GET "/" for 190.101.17.133 at 2016-08-22 16:52:05 +0000
+Cannot render console from 190.101.17.133! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StaticPagesController#home as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "items" WHERE "items"."user_id" = ?  [["user_id", 1]]
+  Rendered shared/_user_info.html.erb (2.7ms)
+  Rendered shared/_error_messagges.html.erb (3.8ms)
+  Rendered shared/_item_form.html.erb (5.6ms)
+  Rendered static_pages/home.html.erb within layouts/application (10.7ms)
+Completed 500 Internal Server Error in 39ms (ActiveRecord: 1.5ms)
+
+ActionView::Template::Error (undefined method `errors' for nil:NilClass):
+    1: <% if @user.errors.any? %>
+    2:   <div id="error_explanation">
+    3:     <div class="alert alert-danger">
+    4:       The form contains <%= pluralize(@user.errors.count, "error") %>.
+  app/views/shared/_error_messagges.html.erb:1:in `_app_views_shared__error_messagges_html_erb___2460173781731378273_70068883168000'
+  app/views/shared/_item_form.html.erb:2:in `block in _app_views_shared__item_form_html_erb___3028102541518706625_70068877612120'
+  app/views/shared/_item_form.html.erb:1:in `_app_views_shared__item_form_html_erb___3028102541518706625_70068877612120'
+  app/views/static_pages/home.html.erb:8:in `_app_views_static_pages_home_html_erb__1576922827611596027_35468940'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (16.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (90.1ms)
