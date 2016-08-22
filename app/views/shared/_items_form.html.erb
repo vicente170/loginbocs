@@ -1,0 +1,16 @@
+<%= form_for(@item) do |f| %>
+  <%= render 'shared/error_messagges', object: f.object %>
+  <div class="field">
+    <%= f.text_area :content, placeholder: "Qué trámite necesitas que HAGAMOS?" %>
+  </div>
+  <div class="field">
+    <%= f.text_field :price, placeholder: "Precio" %>
+  </div>
+  <div class="field">
+    <%= f.text_field :company, placeholder: "Empresa" %>
+  </div>
+  <div class="field">
+    <%= f.text_field :enddate, placeholder: "Para cuando?" %>
+  </div>
+  <%= f.submit "Agrega un nuevo item", class: "btn btn-primary" %>
+<% end %>
