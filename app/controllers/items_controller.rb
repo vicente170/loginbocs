@@ -23,15 +23,12 @@ class ItemsController < ApplicationController
  private
 
     def item_params
-      params.require(:item).permit(:content)
-      params.require(:item).permit(:price)
-      params.require(:item).permit(:company)
-      params.require(:item).permit(:enddate)
+      params.require(:item).permit(:content, :price, :company, :enddate)
     end
     
     def correct_user
-      @micropost = current_user.microposts.find_by(id: params[:id])
-      redirect_to root_url if @micropost.nil?
+      @item = current_user.items.find_by(id: params[:id])
+      redirect_to root_url if @item.nil?
     end
     
 end

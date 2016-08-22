@@ -1,16 +1,23 @@
+<h1 style="text-align:center;">Ingresa un nuevo Boc</h1><br>
+<div class="border-form-div">
 <%= form_for(@item) do |f| %>
   <%= render 'shared/error_messagges', object: f.object %>
   <div class="field">
-    <%= f.text_area :content, placeholder: "Qué trámite necesitas que HAGAMOS?" %>
+    <%= f.label 'Descríbanos su problema :' %>
+    <%= f.text_area :content, placeholder: "Qué trámite necesita que hagamos?" %>
   </div>
   <div class="field">
-    <%= f.text_field :price, placeholder: "Precio" %>
+    <%= f.label 'Cuánto pagaría por que se lo solucionemos:'%>
+    <%= f.text_field :price, placeholder: "Ingrese un monto" %>
   </div>
   <div class="field">
+    <%= f.label 'Con qué empresa está teniendo el problema?'%>
     <%= f.text_field :company, placeholder: "Empresa" %>
   </div>
   <div class="field">
-    <%= f.text_field :enddate, placeholder: "Para cuando?" %>
+    <%= f.label 'Cuán pronto necesita solucionarlo?'%>
+    <%= f.select :enddate, [['2 días','2 días'],['3 días','3 días'],['4 días','4 días'], ['1 semana laboral','5 días']] %>
   </div>
   <%= f.submit "Agrega un nuevo item", class: "btn btn-primary" %>
 <% end %>
+</div>
