@@ -2,6 +2,10 @@ class ItemsController < ApplicationController
   before_action :logged_in?, only: [:create, :destroy]
   before_action :correct_user,   only: :destroy   
     
+  def new
+    @items = Item.new
+  end
+  
   def create
     @item = current_user.items.build(item_params)
     if @item.save
