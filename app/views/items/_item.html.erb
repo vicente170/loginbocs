@@ -1,13 +1,14 @@
 <li id="<%= item.id %>">
   <%= link_to gravatar_for(item.user, size: 50), item.user %>
-  <span class="user"><%= link_to item.user.name, item.user %></span>
+  <span class="enddate">A ser resuelto en: <%= item.enddate %></span>
+  <span class="company">Boc por trámite en: <%= item.company %></span>
   <span class="content"><%= item.content %></span>
   <span class="price">Disposición a pagar: $<%= number_with_delimiter(item.price, :delimiter => '.') %></span>
   <span class="timestamp">
     Posted <%= time_ago_in_words(item.created_at) %> ago.
     <% if current_user?(item.user) %>
-      <%= link_to "delete", item, method: :delete,
-                                       data: { confirm: "You sure?" } %>
+      <%= link_to "Borrar Boc", item, method: :delete,
+                                       data: { confirm: "Estás seguro?" } %>
     <% end %>
   </span>
   
